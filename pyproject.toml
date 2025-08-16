@@ -10,7 +10,7 @@ keywords = ["api", "file-based", "ipc", "communication", "polling"]
 name = "fbapi"
 readme = "README.md"
 requires-python = ">=3.8"
-version = "0.3.9562"
+version = "0.5.11962"
 
 [[project.authors]]
 name = "fbapi contributors"
