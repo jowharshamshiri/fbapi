@@ -1,0 +1,66 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "request_id",
+        "status"
+    ],
+    "properties": {
+        "request_id": {
+            "type": "string",
+            "description": "The unique identifier of the request this response corresponds to."
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "success",
+                "error"
+            ],
+            "description": "Indicates whether the command was executed successfully or if an error occurred."
+        },
+        "response": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "type",
+                    "value"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the param."
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the resource packet."
+                    },
+                    "value": {
+                        "type": "object",
+                        "description": "The value of the resource, structure depends on the type."
+                    }
+                }
+            },
+            "description": "The data returned by the command, encapsulated in ResourcePacket subclass instances. Present only if status is 'success'."
+        },
+        "error": {
+            "type": "object",
+            "required": [
+                "code",
+                "message"
+            ],
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "description": "A code representing the type of error that occurred."
+                },
+                "message": {
+                    "type": "string",
+                    "description": "A human-readable message providing more details about the error."
+                }
+            },
+            "description": "Details of the error, if any occurred during command execution. Present only if status is 'error'."
+        }
+    }
+}
