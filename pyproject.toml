@@ -1,14 +1,13 @@
 [build-system]
-requires = ["setuptools>=64", "wheel"]
+requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "fbapi"
-version = "0.1.5044"
+version = "0.1.5045"
 description = "A general-purpose file-based API communication library"
 readme = "README.md"
 requires-python = ">=3.8"
-license = {text = "MIT"}
 authors = [
     {name = "fbapi contributors"}
 ]
