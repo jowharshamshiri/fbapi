@@ -36,6 +36,9 @@ class ResponseHandler:
         self.start_time = time.time()
         self.completed = False
         
+        # Ensure response directory exists
+        self.response_dir.mkdir(parents=True, exist_ok=True)
+        
         # Create monitor for response directory
         self.monitor = create_monitor(
             str(self.response_dir),
@@ -142,10 +145,17 @@ class FileBasedAPIClient:
     def _setup_directories(self) -> None:
         """Setup and validate directories."""
         for directory in [self.command_dir, self.response_dir]:
-            if not self.security_validator.validate_directory_access(str(directory)):
+            # Check if path exists and is not a directory (file exists with that name)
+            if directory.exists() and not directory.is_dir():
                 raise SecurityError(f"Invalid directory access: {directory}")
             
-            directory.mkdir(parents=True, exist_ok=True)
+            # Create directory if it doesn't exist
+            if not directory.exists():
+                directory.mkdir(parents=True, exist_ok=True)
+            
+            # Validate access
+            if not self.security_validator.validate_directory_access(str(directory)):
+                raise SecurityError(f"Invalid directory access: {directory}")
     
     def validate_json(self, data: Dict[str, Any], schema_type: str) -> None:
         """

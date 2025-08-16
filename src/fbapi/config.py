@@ -7,6 +7,7 @@ Supports YAML and JSON configuration files with validation and defaults.
 import json
 import os
 import logging
+import copy
 from pathlib import Path
 from typing import Dict, Any, Optional, Union
 
@@ -63,7 +64,7 @@ class FBAPIConfig:
             config_path: Path to configuration file (YAML or JSON)
             config_dict: Configuration dictionary (overrides file)
         """
-        self._config = self.DEFAULT_CONFIG.copy()
+        self._config = copy.deepcopy(self.DEFAULT_CONFIG)
         
         if config_path:
             self.load_from_file(config_path)
@@ -247,11 +248,11 @@ class FBAPIConfig:
         Returns:
             Configuration section dictionary
         """
-        return self._config.get(section, {}).copy()
+        return copy.deepcopy(self._config.get(section, {}))
     
     def to_dict(self) -> Dict[str, Any]:
         """Get full configuration as dictionary."""
-        return self._config.copy()
+        return copy.deepcopy(self._config)
     
     def save_to_file(self, config_path: str) -> None:
         """

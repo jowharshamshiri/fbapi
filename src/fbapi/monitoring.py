@@ -73,6 +73,10 @@ class EventDrivenMonitor(FileMonitor):
         self._observer: Optional[Observer] = None
         self._event_handler = _WatchdogEventHandler(self.callback, self.security_validator)
     
+    def is_running(self) -> bool:
+        """Check if monitoring is currently active."""
+        return self._observer is not None and self._observer.is_alive()
+    
     def start(self) -> None:
         """Start event-driven monitoring."""
         if self.is_running():

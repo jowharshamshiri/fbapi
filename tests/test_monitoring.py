@@ -228,7 +228,10 @@ class TestEventDrivenMonitor:
         
         # Verify callback was called
         assert callback.called
-        callback.assert_called_with(str(test_file))
+        # Check that callback was called with the correct file (accounting for symlinks)
+        actual_path = Path(callback.call_args[0][0]).resolve()
+        expected_path = test_file.resolve()
+        assert actual_path == expected_path
 
 
 class TestEventDrivenMonitorWithoutWatchdog:

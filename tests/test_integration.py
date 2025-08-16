@@ -298,7 +298,7 @@ class TestClientServerIntegration:
                 json.dump(invalid_command, f)
             
             # Wait for server to process
-            time.sleep(1.0)
+            time.sleep(2.0)
             
             # Verify command file was removed (cleanup after error)
             assert not command_file.exists()

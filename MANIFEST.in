@@ -1,0 +1,5 @@
+include README.md
+include ROADMAP.md
+recursive-include json_schemas *.json
+recursive-include docs *.rst *.md
+recursive-include examples *.py

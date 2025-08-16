@@ -28,8 +28,8 @@ class SchemaManager:
     
     def _get_default_schema_dir(self) -> Path:
         """Get default schema directory."""
-        # Use schemas from the original json_schemas directory
-        current_dir = Path(__file__).parent.parent
+        # Use schemas from the project root json_schemas directory
+        current_dir = Path(__file__).parent.parent.parent
         return current_dir / "json_schemas"
     
     def _load_schemas(self) -> None:

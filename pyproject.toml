@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fbapi"
-version = "0.1.0"
+version = "0.1.5044"
 description = "A general-purpose file-based API communication library"
 readme = "README.md"
 requires-python = ">=3.8"

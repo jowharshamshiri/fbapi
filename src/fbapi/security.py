@@ -179,9 +179,9 @@ class SecurityValidator:
         
         # Check for suspicious patterns (basic)
         suspicious_patterns = [
-            'eval(',
-            'exec(',
-            'import ',
+            'eval',
+            'exec',
+            'import',
             '__import__',
             'subprocess',
             'os.system'
