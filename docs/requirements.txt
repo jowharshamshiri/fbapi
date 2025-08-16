@@ -1,0 +1,12 @@
+# Documentation build requirements
+sphinx>=5.0.0
+sphinx-rtd-theme>=1.0.0
+sphinx-autodoc-typehints>=1.0.0
+
+# Configuration file parsing (for older Python versions)
+toml>=0.10.0
+
+# Package dependencies needed for autodoc
+jsonschema>=4.0.0
+watchdog>=2.0.0
+pyyaml>=6.0

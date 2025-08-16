@@ -134,3 +134,83 @@ config_example/
 fbapi_config_example.json
 fbapi_updated_config.json
 generated/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Testing and development
+commands/
+responses/
+test_commands/
+test_responses/
+.coverage.*
+.pytest_cache/
+.tox/
+
+# Documentation build artifacts
+docs/_build/
+docs/_static/
+docs/_templates/
+*.epub
+*.pdf
+
+# Package management
+poetry.lock
+Pipfile.lock
+requirements-dev.txt
+
+# Temporary files and backups
+*.tmp
+*.bak
+*.orig
+*.rej
+.backup/
+temp/
+tmp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Project specific
+LICENSE.bak
+/tmp/

@@ -11,8 +11,28 @@ copyright = '2025, fbapi contributors'
 author = 'fbapi contributors'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.5044'
-version = '0.1.5044'
+# Read version from pyproject.toml
+try:
+    # For Python 3.11+
+    import tomllib
+    with open('../pyproject.toml', 'rb') as f:
+        pyproject = tomllib.load(f)
+        release = pyproject['project']['version']
+        version = release
+except ImportError:
+    # For Python < 3.11, use toml library
+    try:
+        import toml
+        with open('../pyproject.toml', 'r') as f:
+            pyproject = toml.load(f)
+            release = pyproject['project']['version']
+            version = release
+    except Exception:
+        release = '0.3.9562'
+        version = release
+except Exception:
+    release = '0.3.9562'
+    version = release
 
 # -- General configuration ---------------------------------------------------
 
